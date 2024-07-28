@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+<style>
+  .random_color{
+    background-color: black;
+    width:200px;
+    height:200px;
+    border-radius:5px;
+  }
+</style>
+<body>
+   <div>
+    <div>
+        <a href="otp"><button>OTP</button></a><span th:if="${otp}" th:text="'  Otp is '+${otp}"></span>
+    </div>
+     <br><br>
+   
+     <div>
+      <a href="toss"><button>TOSS</button></a><span th:if="${toss}" th:text="' Toss is '+${toss}"></span>
+  </div>
+  <br>
+  <div>
+    <a href="random"><button>Random Color</button></a><br>
+    <br>
+    <div th:if="${rcolor}" class="random_color" th:style="'background-color:rgb('+${rcolor[0]}+','+${rcolor[1]}+','+${rcolor[2]}+')'">   
+    </div>
+  </div>
+
+  <div>
+    <form action="textcolor">
+        <input type="text"  placeholder="Enter some text here" name="text">
+        <input type="color" name="color" style="margin-left:10px;"><button style="margin-left:10px;">Send</button>
+    </form>
+    <br>
+    <input type="text" th:if="${color}" th:value="${text}" th:style="'color:'+${color}">
+  </div>
+   </div><br><br>
+   <div>
+    <form action="calculator">
+        <input type="text" placeholder="enter inpu1" name="input1" th:value="${n1}">
+        <input type="text" placeholder="enter inpu1"  style="margin-left:10px;" name="input2" th:value="${n1}"><br><br>
+        <input type="text" placeholder="answer" th:value="${data}"><br><br>
+        <button name="btn" value="add">+</button>
+        <button name="btn" value="sub">-</button>
+        <button name="btn" value="mul">*</button>
+        <button name="btn" value="div">/</button>
+    </form>
+   </div>
+</body>
+</html>
